@@ -60,7 +60,7 @@ require_once 'vendor/Model.php';
 			echo "Sai tên tài khoản hoặc mật khẩu!";
 		}
 		return false;
-	}
+	
 }
 	function rememberLogin(){
 		//xu ly luu dang nhap
