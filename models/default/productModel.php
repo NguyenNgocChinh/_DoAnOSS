@@ -8,10 +8,25 @@ class productModel extends Model
 		parent::__construct();
 	}
 	function getPrds($orderBy, $start, $last, $where = null){
-		//GET SAN PHAM
+		if($where === null){
+			$sql = "SELECT * FROM sanpham ORDER BY ".$orderBy." desc LIMIT ".$start.",".$last;
+		} else {
+			$sql = "SELECT * FROM sanpham WHERE ".$where." ORDER BY ".$orderBy." desc LIMIT ".$start.",".$last;
+		}
+		
+		$prd = array();
+		foreach($this->conn->query($sql) as $row){
+			$prd[] = $row;
+		}
+		return $prd;
 	}
 	function getPrdById($masp){
-		//GET SAN PHAM BY ID
+		$sql = "SELECT * FROM sanpham WHERE masp = ".$masp;
+		$prd = array();
+		foreach($this->conn->query($sql) as $row){
+			$prd = $row;
+		}
+		return $prd;
 	}
 
 }
