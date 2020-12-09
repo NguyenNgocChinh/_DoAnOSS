@@ -15,6 +15,10 @@ class ProductAdminController extends Controller
 	}
 	function index(){
 		//Xu ly hien thi san pham
-		$this->render('product');
+		require_once 'vendor/Model.php';
+		require_once 'models/admin/productModel.php';
+		$md = new productModel;
+		$data = $md->getAllPrds();
+		$this->render('product',$data,'SẢN PHẨM','admin');
 	}
 }
