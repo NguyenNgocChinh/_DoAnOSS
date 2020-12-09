@@ -61,6 +61,7 @@ require_once 'vendor/Model.php';
 		}
 		return false;
 	}
+}
 	function rememberLogin(){
 		//xu ly luu dang nhap
 require_once 'vendor/Model.php';
