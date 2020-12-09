@@ -10,14 +10,21 @@ class AnalyticsController extends Controller
 	{
 		$this->folder = "admin";
 		if(!isset($_SESSION['admin'])){
-			header("Location:".APP_URL."indexadmin");
+			header("Location: APP_URL.'indexadmin'");
 		}
 	}
 	function index(){
-
-		$this->render('analytics');
+		require_once 'vendor/Model.php';
+		/*require_once 'models/admin/memberModel.php';
+		$md = new memberModel;
+		$data = $md->getAllMembers();*/
+		$this->render('analytics',null,'ANALYTICS','admin');
 	}
 	function memberAnalytics(){
-		$this->render('memberAnalytics');
+		require_once 'vendor/Model.php';
+		/*require_once 'models/admin/memberModel.php';
+		$md = new memberModel;
+		$data = $md->getAllMembers();*/
+		$this->render('memberAnalytics',null,'MEMBER ANALYTICS','admin');
 	}
 }
