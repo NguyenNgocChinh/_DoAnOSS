@@ -150,7 +150,7 @@ require_once 'vendor/Model.php';
 			}
 		}
 	}
-	}
+	
 	function logout(){
 		//xu ly dang xuat
 session_unset();
