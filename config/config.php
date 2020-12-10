@@ -1,5 +1,5 @@
 <?php 
-DEFINE('INDEX_URL','http://localhost/');
+DEFINE('INDEX_URL','http://localhost:1234/');
 DEFINE('APP_URL','http://localhost:1234/WBH/');
 DEFINE('BASE_HREF','/WBH/');
 DEFINE('DB_HOST','localhost');

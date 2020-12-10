@@ -1,4 +1,5 @@
-﻿$(document).ready(function(){
+﻿document.writeln("<script type='text/javascript' src='./config/config.js'></script>");
+$(document).ready(function(){
   $(".cart-container").click(function(){
     $(this).toggleClass('cart-ordered');
     var masp = $(this).data('masp');
@@ -70,7 +71,7 @@ function login(){
     success : function (result){
       if(result == 'LoginSuccess'){
         /*$('.errorMes').html(result);*/
-        window.location.replace("http://localhost/WBH_MVC/");
+        window.location.replace(APP_URL);
       } else {
         $('.errorMes')[0].style.display = "block";
         $('.errorMes').html(result);
@@ -96,7 +97,7 @@ function register(){
    success : function (result){
     if(result == 'RegisterSuccess'){
       alert('Tạo tài khoản thành công!');
-      window.location.replace("http://localhost/WBH_MVC/");
+      window.location.replace(APP_URL);
     } else{
       $('.errorMes')[0].style.display = "block";
       $('.errorMes').html(result);
