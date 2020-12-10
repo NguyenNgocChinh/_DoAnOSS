@@ -82,7 +82,9 @@
             </thead>
             <tbody>
               <?php  for($i = 0; $i < count($data); $i++){
-                $rsp = count($data[$i]['sp']) ?>
+
+                $rsp = count($data[$i]);
+                 ?>
                 <tr>
                   <td><input type="checkbox" class="cbgd" value="<?php echo $data[$i]['magd'] ?>"></td>
                   <td><span class="glyphicon glyphicon-pencil btn btn-info editBtn" data-value="<?php echo $data[$i]['magd'] ?>"></span></td>
