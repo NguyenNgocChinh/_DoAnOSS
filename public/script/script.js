@@ -1,5 +1,4 @@
-﻿document.writeln("<script type='text/javascript' src='./config/config.js'></script>");
-$(document).ready(function(){
+﻿$(document).ready(function(){
   $(".cart-container").click(function(){
     $(this).toggleClass('cart-ordered');
     var masp = $(this).data('masp');
@@ -170,6 +169,7 @@ function orderComplete(){
      ten, sodt, quan, dc, sp, num, type
    },
    success : function (result){
+    console.log(result);
     $('body').html(result);
   }
 });

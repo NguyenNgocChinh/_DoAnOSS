@@ -55,7 +55,7 @@ class ClientController extends Controller
 				}
 			} else {
 				if(isset($_SESSION['user'])){
-					$sql = "INSERT INTO giohang VALUES(".$_SESSION['user']['id'].",".$masp.")";
+					$sql = "INSERT INTO giohang VALUES(".$_SESSION['user']['id'].",".$masp.",1)";
 					$md->exe_query($sql);
 				}
 				$_SESSION['cart'][] = $md->getPrdById($masp)['masp'];
@@ -105,7 +105,7 @@ class ClientController extends Controller
 		$num = $sp = [];
 
 		if(isset($_POST['ten'])){$ten = $_POST['ten'];}
-		if(isset($_POST['sdt'])){$sdt = $_POST['sdt'];}
+		if(isset($_POST['sodt'])){$sdt = $_POST['sodt'];}
 		if(isset($_POST['quan'])){$quan = $_POST['quan'];}
 		if(isset($_POST['dc'])){$dc = $_POST['dc'];}
 		if(isset($_POST['sp'])){$sp = $_POST['sp'];}
@@ -122,7 +122,7 @@ class ClientController extends Controller
 			$tt += $num[$i]*intval(preg_replace('/\s+/', '', $row['gia']));
 		}
 		date_default_timezone_set('Asia/Ho_Chi_Minh');
-		$sql = "INSERT INTO giaodich VALUES ('',0,'','".$ten."','".$quan."','".$dc."','".$sdt."','".$tt."','".$now."')";
+		$sql = "INSERT INTO giaodich(magd,tinhtrang,user_id,user_name,user_dst,user_addr,user_phone,tongtien,date) VALUES ('',0,'','".$ten."','".$quan."','".$dc."','".$sdt."','".$tt."','".$now."')";
 		$rs = $md->exe_query($sql);
 		if($rs){
 			$last_id = $md->getLastInsertID();
@@ -130,6 +130,8 @@ class ClientController extends Controller
 				$data = array($last_id, $sp[$i], $num[$i]);
 				$md->insert('chitietgd',$data);
 			}
+			echo "OK";
+			$this->render('orderComplete');
 		}
 		if(!($type == "buynow")){
 			$_SESSION['cart'] = null;
